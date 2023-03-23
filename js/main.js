@@ -8,14 +8,12 @@ const { createApp } = Vue
       }
     },methods:{
         gettingEmail(response){
-            return new Promise((resolve,reject)=>{ 
-        
+            
             this.randomEmail = response.data.response;
             this.emailArray.push(this.randomEmail);
             console.log(this.emailArray);
-       
-        },
-      )
+          
+     
     },
 },
     mounted() {
@@ -24,14 +22,9 @@ const { createApp } = Vue
     axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
     
     .then( (response) => {
-                
-        this.gettingEmail(response)
-                // this.randomEmail = response.data.response;
-                // this.emailArray.push(this.randomEmail);
-                // console.log(this.emailArray)
-          
-             
-        }
+      this.gettingEmail(response)
+
+    }
     )
     }
     
